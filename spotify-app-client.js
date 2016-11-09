@@ -1,0 +1,5 @@
+
+
+function getArtistByName(callback){
+
+}
