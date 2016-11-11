@@ -9,8 +9,12 @@ exports.spotifyRoutes=function(app){
         res.render("homeView/home");
     })
 
-    app.get('/artist', function(req, res){
-        spotifyClient.getArtistByName(req.query.artist,
-            (rst)=>res.render("searchResults",{results:rst}));
+    app.get('/search', function(req, res) {
+        res.redirect("search/"+req.query.artist);
     });
+
+    app.get("/search/:artist",function(req,res){
+        spotifyClient.getArtistByName(req.params.artist,
+            (rst)=>console.log(rst));
+    })
 }
