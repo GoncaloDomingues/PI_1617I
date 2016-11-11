@@ -1,0 +1,16 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-5">
+            <h1>{{name}}</h1>
+            <img src="{{image}}" alt="{{name}} image">
+        </div>
+        <div class="col-md-5">
+            <h2>Albums</h2>
+            {{#each albums.items}}
+                <h3>{{name}}</h3>
+                <p>{{album_type}}</p>
+                <img src="{{{images.2.url}}}" alt="{{name}} image">
+            {{/each}}
+        </div>
+    </div>
+</div>
