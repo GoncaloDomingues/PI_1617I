@@ -15,6 +15,6 @@ exports.spotifyRoutes=function(app){
 
     app.get("/search/:artist",function(req,res){
         spotifyClient.getArtistByName(req.params.artist,
-            (rst)=>console.log(rst));
+            (rst)=>res.render("searchResult/searchResult",rst));
     })
 }
