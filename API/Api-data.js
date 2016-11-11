@@ -1,14 +1,14 @@
 "use strict"
-const http = require("../dependencies").http;
+const request = require("../dependencies").request;
 
-exports.httpRequest = function(opt,callback){
-    let request = http.request(opt,function(res){
-            let result = "";
-            res.on("error",callback);
-            res.on("data",function(d){
-                result+=d;
-            });
-            res.on("end",()=>callback(null,result));
-        });
-        request.end();
+ function getResults(opt,callback){
+   request(
+        {uri:opt.host+opt.path,
+        method:"GET"},
+        (error,response,body)=>{
+            let data=JSON.parse(body);
+       callback(data);
+     })
 }
+
+exports.getResults = getResults
