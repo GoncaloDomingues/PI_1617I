@@ -9,4 +9,14 @@ function getArtistByName(query,callback) {
     })
 }
 
+function getArtistById(id ,callback) {
+    api(new opt("/artists/" + id), data => callback(data))
+}
+
+function getAlbumsByArtistId(id, callback) {
+    api(new opt("/artists/" + id + "/albums"), data => callback(data))
+}
+
 exports.getArtistByName = getArtistByName;
+exports.getArtistById = getArtistById
+exports.getAlbumsByArtistId = getAlbumsByArtistId
