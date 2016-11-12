@@ -3,8 +3,11 @@ const dependencies = require("./dependencies.js");
 const opt = dependencies.options.spotifyOptions
 const api = dependencies.api.getResults;
 
-function getArtistByName(query,callback) {
-    api(new opt("/search?type=artist&q=" + query), (data)=> {
+function getArtistByName(query,offset,callback) {
+    if(offset!==1)
+        offset = +offset+ +19
+    else offset =0;
+    api(new opt("/search?type=artist&offset="+offset+"&q=" + query), (data)=> {
         callback(data);
     })
 }

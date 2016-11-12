@@ -7,7 +7,7 @@ function Options(host,path,method) {
     this.host = host;
     this.path = path;
 }
-function spotifyOption(path){
+function spotifyOption(path,offset){
     return new Options(API_URI, "/v1"+path,"GET");
 }
 
